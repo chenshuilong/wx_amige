@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/category/category",
+    "pages/person/person",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#f88829",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#2196f3",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "./res/img/menu/home.png",
+        "selectedIconPath": "./res/img/menu/home_selected.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "./res/img/menu/menu.png",
+        "selectedIconPath": "./res/img/menu/menu_selected.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "iconPath": "./res/img/menu/person.png",
+        "selectedIconPath": "./res/img/menu/person_selected.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}
