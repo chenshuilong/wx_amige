@@ -1,51 +1,74 @@
 //获取应用实例
 var app = getApp()
-var arr_name = ["个性化", "找人", "我的OKR", "项目汇总", "项目规格查询",
-  "项目进度汇总", "安全公示", "产品汇总", "发布", "产品信息", "代码仓", "产品分支申请",
-  "产品建仓申请", "项目分支申请", "权限配置", "编译机状态", "版本管理", "定期版本管理", 
-  "Path管理", "应用签名", "需求管理"]
 
 Page({
   data: {
     list: [
       {
         id: 'my',
-        name: '',
+        name: '我的地盘',
         open: false,
-        pages: ['csl']
+        pages: [
+          { name: '首页', path: 'homepage' },
+          { name: '个性化', path: 'page' },
+          { name: '我的通知', path: 'notification' },
+          { name: '我的账号', path: 'account' },
+          { name: '找人', path: 'staff' },
+          { name: '我的OKR', path: 'okr' },
+          { name: '我的任务', path: 'task' }
+        ]
       }, {
-        id: 'view',
-        name: '视图容器',
+        id: 'project',
+        name: '项目',
         open: false,
-        pages: ['view', 'scroll-view', 'swiper']
+        pages: [
+          { name: '汇总', path: 'project' },
+          { name: '项目规格查询', path: 'spec' },
+          { name: '项目进度汇总', path: 'project_progress' },
+          { name: '安全公示', path: 'version_publish' }
+        ]
       }, {
-        id: 'content',
-        name: '基础内容',
+        id: 'issue',
+        name: '缺陷管理',
         open: false,
-        pages: ['text', 'icon', 'progress']
+        pages: [
+          { name: '问题', path: 'issue' },
+          { name: '报表', path: 'report' }
+        ]
       }, {
-        id: 'form',
-        name: '表单组件',
+        id: 'production',
+        name: '产品中心',
         open: false,
-        pages: ['button', 'checkbox', 'form', 'input', 'label', 'picker', 'radio', 'slider', 'switch', 'textarea']
+        pages: [
+          { name: '汇总', path: 'production' },
+          { name: '发布', path: 'version_release' },
+          { name: '产品信息', path: 'apk_base' }
+        ]
       }, {
-        id: 'nav',
-        name: '导航',
+        id: 'repo',
+        name: '代码仓',
         open: false,
-        pages: ['navigator']
+        pages: [
+          { name: '代码仓', path: 'repo' },
+          { name: '编译机状态', path: 'compile_machine_status' },
+          { name: '定期版本', path: 'periodic_version' },
+          { name: '版本管理', path: 'version' },
+          { name: 'Patch管理', path: 'patch' },
+          { name: '应用签名', path: 'signature' }
+        ]
       }, {
-        id: 'media',
-        name: '媒体组件',
+        id: 'demand',
+        name: '库',
         open: false,
-        pages: ['image', 'audio', 'video']
+        pages: [
+          { name: '需求管理', path: 'demand' }
+        ]
       }, {
-        id: 'map',
-        name: '地图',
-        pages: ['map']
-      }, {
-        id: 'canvas',
-        name: '画布',
-        pages: ['canvas']
+        id: 'shard',
+        name: '分享',
+        pages: [
+          { name: '工具聚合', path: 'tool' }
+        ]
       }
     ]
   },
