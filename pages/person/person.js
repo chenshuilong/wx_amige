@@ -1,67 +1,129 @@
-var app = getApp()
-
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    
+    // text:"这是一个页面"
+    isHiddenToast: true,
+    messages: [
+      {
+        groupName: "选项1",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "选项2",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "选项3",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "选项4",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "选项5",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "选项6",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "选项7",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "选项8",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "选项9",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
+      }
+    ]
+  },
+  isShowToast: function () {
+    this.setData({
+      isHiddenToast: false
+    })
+  },
+  toastChange: function () {
+    this.setData({
+      isHiddenToast: true
+    })
+  },
+  bindtap0: function () {
+    wx.navigateTo({
+      url: "/pages/index/index"
+    })
+  },
+  bindtap1: function () {
+    wx.navigateTo({
+      url: "/pages/index/index"
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  bindtap2: function () {
+    wx.navigateTo({
+      url: "/pages/index/index"
+    })
+  },
+  bindtap3: function () {
+    wx.navigateTo({
+      url: "/pages/index/index"
+    })
+  },
+  bindtap4: function () {
+    wx.navigateTo({
+      url: "/pages/index/index"
+    })
+  },
+  bindtap5: function () {
+    wx.navigateTo({
+      url: "/pages/index/index"
+    })
+  },
+  bindtap6: function () {
+    wx.navigateTo({
+      url: "/pages/index/index"
+    })
+  },
+  bindtap7: function () {
+    wx.navigateTo({
+      url: "/pages/index/index"
+    })
+  },
+  bindtap8: function () {
+    wx.navigateTo({
+      url: "/pages/index/index"
+    })
+  },
   onLoad: function (options) {
-    
+    // 页面初始化 options为页面跳转所带来的参数
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
   onReady: function () {
-    
+    // 页面渲染完成
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
-    
+    // 页面显示
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
-    
+    // 页面隐藏
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-    
+    // 页面关闭
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
+  bindtap: function (event) {
+    wx.navigateTo({
+      url: "/pages/index/index"
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
-  }
 })

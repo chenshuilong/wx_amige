@@ -20,7 +20,7 @@
 .index-desc {
   margin-top: 20rpx;
   color: #888;
-  font-size: 28rpx;
+  font-size: 20rpx;
 }
 
 .navigator-box {
@@ -28,7 +28,7 @@
   position: relative;
   background-color: #fff;
   line-height: 1.41176471;
-  font-size: 34rpx;
+  font-size: 22rpx;
   transform: translateY(-50%);
   transition: 0.3s;
 }
@@ -109,6 +109,7 @@
   display: flex;
   align-items: center;
   transition: opacity 0.3s;
+  font-size: 28rpx;
 }
 
 .kind-list-item-hd-show {

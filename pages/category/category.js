@@ -84,5 +84,8 @@ Page({
     this.setData({
       list: list
     });
+  },
+  onPullDownRefresh: function () {
+    console.log("refresh page success")
   }
 })

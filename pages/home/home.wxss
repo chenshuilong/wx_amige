@@ -1,6 +1,7 @@
 .main {
   display: flex;
   flex-direction: column;
+  margin: 20px
 }
 
 .view-search {
@@ -30,4 +31,9 @@
 .request_null {
   display: flex;
   margin-left: 20rpx;
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
 }
