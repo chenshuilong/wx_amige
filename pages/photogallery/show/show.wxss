@@ -1,0 +1,69 @@
+.WViewRow1 {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  margin: 8PX 0PX 0PX 0PX;
+  padding: 10PX 15PX 10PX 15PX;
+  width: 375px;
+  height: 64PX;
+  background-color: #fff;
+  color: #fff;
+  font-size: 20PX;
+  line-height: 20PX;
+}
+
+.WViewRow2 {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;
+  width: 90PX;
+  height: 44PX;
+  background-color: transparent;
+  color: #fff;
+  font-size: 20PX;
+  line-height: 44PX;
+}
+
+.WText17PT1 {
+  background-color: transparent;
+  color: #000;
+  font-size: 17PX;
+  line-height: 17PX;
+}
+
+.WText14PT1 {
+  background-color: transparent;
+  color: #888;
+  font-size: 14PX;
+  line-height: 14PX;
+}
+
+.WViewRow3 {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  margin: 0PX 0PX 0PX 5PX;
+  width: 250PX;
+  height: 44PX;
+  background-color: transparent;
+  color: #fff;
+  font-size: 20PX;
+  line-height: 17PX;
+}
+
+.WImage1 {
+  width: 17px;
+  height: 17px;
+}

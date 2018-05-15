@@ -1,50 +1,29 @@
 Page({
   data: {
-    // text:"这是一个页面"
     isHiddenToast: true,
     messages: [
       {
-        groupName: "选项1",
+        groupName: "精美时钟",
+        icon: "/res/img/menu/clock.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "机器人聊天",
         icon: "/res/img/menu/person-option.png",
         rightImage: "/res/person/tip.png"
       },
       {
-        groupName: "选项2",
-        icon: "/res/img/menu/person-option.png",
+        groupName: "2048",
+        icon: "/res/img/menu/2048.png",
         rightImage: "/res/person/tip.png"
       },
       {
-        groupName: "选项3",
-        icon: "/res/img/menu/person-option.png",
+        groupName: "日历",
+        icon: "/res/img/menu/calendar.png",
         rightImage: "/res/person/tip.png"
       },
       {
-        groupName: "选项4",
-        icon: "/res/img/menu/person-option.png",
-        rightImage: "/res/person/tip.png"
-      },
-      {
-        groupName: "选项5",
-        icon: "/res/img/menu/person-option.png",
-        rightImage: "/res/person/tip.png"
-      },
-      {
-        groupName: "选项6",
-        icon: "/res/img/menu/person-option.png",
-        rightImage: "/res/person/tip.png"
-      },
-      {
-        groupName: "选项7",
-        icon: "/res/img/menu/person-option.png",
-        rightImage: "/res/person/tip.png"
-      },
-      {
-        groupName: "选项8",
-        icon: "/res/img/menu/person-option.png",
-        rightImage: "/res/person/tip.png"
-      },
-      {
-        groupName: "选项9",
+        groupName: "相册",
         icon: "/res/img/menu/person-option.png",
         rightImage: "/res/person/tip.png"
       }
@@ -62,48 +41,28 @@ Page({
   },
   bindtap0: function () {
     wx.navigateTo({
-      url: "/pages/index/index"
+      url: "/pages/clock/clock"
     })
   },
   bindtap1: function () {
     wx.navigateTo({
-      url: "/pages/index/index"
+      url: "/pages/robot/robot"
     })
   },
 
   bindtap2: function () {
     wx.navigateTo({
-      url: "/pages/index/index"
+      url: "/pages/2048/2048"
     })
   },
   bindtap3: function () {
     wx.navigateTo({
-      url: "/pages/index/index"
+      url: "/pages/calendar/calendar"
     })
   },
   bindtap4: function () {
     wx.navigateTo({
-      url: "/pages/index/index"
-    })
-  },
-  bindtap5: function () {
-    wx.navigateTo({
-      url: "/pages/index/index"
-    })
-  },
-  bindtap6: function () {
-    wx.navigateTo({
-      url: "/pages/index/index"
-    })
-  },
-  bindtap7: function () {
-    wx.navigateTo({
-      url: "/pages/index/index"
-    })
-  },
-  bindtap8: function () {
-    wx.navigateTo({
-      url: "/pages/index/index"
+      url: "/pages/photogallery/new/new"
     })
   },
   onLoad: function (options) {

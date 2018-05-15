@@ -1,0 +1,10 @@
+<view class="WViewRow1" style="">
+  <view class="WViewRow2" style="">
+    <text class="WText17PT1" style="">双行列表</text>
+    <text class="WText14PT1" style="">描述信息</text>
+  </view>
+  <view class="WViewRow3" style="">
+    <image class="WImage1" style="" src="http://layout.qdzhixinda.com/Public/images/arrowright.png">
+    </image>
+  </view>
+</view>

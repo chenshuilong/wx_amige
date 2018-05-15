@@ -3,7 +3,13 @@
     "pages/home/home",
     "pages/category/category",
     "pages/person/person",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/clock/clock",
+    "pages/robot/robot",
+    "pages/2048/2048",
+    "pages/calendar/calendar",
+    "pages/photogallery/new/new",
+    "pages/photogallery/show/show"
   ],
   "window": {
     "backgroundTextStyle": "dark",

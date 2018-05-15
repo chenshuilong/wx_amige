@@ -1,112 +1,58 @@
 var app = getApp()
 
-var isLoading = false
 Page({
   data: {
-    arr_res: [],
-    windowHeight: "500px",
-    loadingHidden: true,
-    input_value: null,
-    nullHidden: true,
-    lodingInfo: "正在搜索",
-    url: "../../pages/content/content",
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
-    indicatorDots: true,
+    latitude: 0,
+    longitude: 0,
+    width: 0,
+    height: 0,
     autoplay: true,
     interval: 5000,
-    duration: 1000,
-    markers: [{
-      iconPath: "/res/img/menu/person_selected.png",
-      id: 0,
-      latitude: 22.5433410000,
-      longitude: 114.0316650000,
-      width: 50,
-      height: 50
-    }],
-    polyline: [{
-      points: [{
-        longitude: 114.0316650000,
-        latitude: 22.5433410000
-      }, {
-          longitude: 114.0316650000,
-          latitude: 22.5433410000
-      }],
-      color: "#FF0000DD",
-      width: 2,
-      dottedLine: true
-    }],
-    controls: [{
-      id: 1,
-      iconPath: '/res/img/menu/person_selected.png',
-      position: {
-        left: 0,
-        top: 300 - 50,
-        width: 50,
-        height: 50
-      },
-      clickable: true
-    }]
+    duration: 1000
   },
-  onReady: function (e) {
-
+  onShareAppMessage(e) {
+    return {
+      title: '阿米哥',
+      path: '/pages/home/home'
+    }
   },
-  // 赋值
-  bindSearchInput: function (e) {
+  onLoad(e) {
     this.setData({
-      input_value: e.detail.value
+      width: app.globalData.windowWidth,
+      height: app.globalData.windowHeight
     })
   },
-  // 开始搜索
-  tapSearch: function (event) {
-    if (this.data.input_value == null || this.data.input_value.length == 0) {
-      return;
-    }
-    var that = this;
+  onReady() {
+    this.getLocation();
+  },
+  getLocation() {
+    wx.getLocation({
+      type: 'gcj02',
+      success: this.handleGetLocationSucc.bind(this),
+    })
+  },
+  handleGetLocationSucc(res) {
     this.setData({
-      loadingHidden: false,
-      nullHidden: true,
-      lodingInfo: "正在搜索"
-    });
-    setTimeout(function(){
-      if (that.data.input_value != "阿米哥") {
-        that.setData({
-          loadingHidden: true,
-          nullHidden: false,
-          lodingInfo: "搜索完成"
-        })
-      } else {
-        that.setData({
-          loadingHidden: true,
-          nullHidden: true,
-          lodingInfo: "搜索完成"
-        })
-      }
-    }, 3000);
+      latitude: res.latitude,
+      longitude: res.longitude
+    })
   },
-  //滑到底部监听事件
-  lower: function (e) {
-    console.log(e);
-  },
-  changeIndicatorDots: function (e) {
+  changeIndicatorDots(e) {
     this.setData({
       indicatorDots: !this.data.indicatorDots
     })
   },
-  changeAutoplay: function (e) {
+  changeAutoplay(e) {
     this.setData({
       autoplay: !this.data.autoplay
     })
   },
-  intervalChange: function (e) {
+  intervalChange(e) {
     this.setData({
       interval: e.detail.value
     })
   },
-  durationChange: function (e) {
+  durationChange(e) {
     this.setData({
       duration: e.detail.value
     })
