@@ -52,9 +52,9 @@ Page({
         var x = R * Math.cos(i * Math.PI / 6 - Math.PI / 2);
         var y = R * Math.sin(i * Math.PI / 6 - Math.PI / 2);
         if (i == 11 || i == 12) {//调整数字11和12的位置
-          context.fillText(i, x - 12, y + 9);
+          context.fillText(i, x - 12, y);
         } else {
-          context.fillText(i, x - 6, y + 9);
+          context.fillText(i, x - 6, y);
         }
       }
     }

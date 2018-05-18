@@ -8,6 +8,8 @@
     "pages/robot/robot",
     "pages/2048/2048",
     "pages/calendar/calendar",
+    "pages/calculator/main/main",
+    "pages/calculator/history/history",
     "pages/photogallery/new/new",
     "pages/photogallery/show/show"
   ],

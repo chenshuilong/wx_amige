@@ -17,7 +17,6 @@ Page({
   },
 
   onShow: function () {
-    console.log('onShow');
     this.calcMonthDayArray();
   },
 

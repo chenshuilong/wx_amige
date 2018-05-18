@@ -26,6 +26,11 @@ Page({
         groupName: "相册",
         icon: "/res/img/menu/person-option.png",
         rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "计算器",
+        icon: "/res/img/menu/calculator.png",
+        rightImage: "/res/person/tip.png"
       }
     ]
   },
@@ -63,6 +68,11 @@ Page({
   bindtap4: function () {
     wx.navigateTo({
       url: "/pages/photogallery/new/new"
+    })
+  },
+  bindtap5: function () {
+    wx.navigateTo({
+      url: "/pages/calculator/main/main"
     })
   },
   onLoad: function (options) {
