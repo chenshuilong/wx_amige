@@ -31,6 +31,16 @@ Page({
         groupName: "计算器",
         icon: "/res/img/menu/calculator.png",
         rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "新闻",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "你猜我画",
+        icon: "/res/img/menu/person-option.png",
+        rightImage: "/res/person/tip.png"
       }
     ]
   },
@@ -73,6 +83,16 @@ Page({
   bindtap5: function () {
     wx.navigateTo({
       url: "/pages/calculator/main/main"
+    })
+  },
+  bindtap6: function () {
+    wx.navigateTo({
+      url: "/pages/news/main/main"
+    })
+  },
+  bindtap7: function () {
+    wx.navigateTo({
+      url: "/pages/drawguess/index/index"
     })
   },
   onLoad: function (options) {

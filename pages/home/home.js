@@ -2,6 +2,7 @@ var app = getApp()
 
 Page({
   data: {
+    userInfo: {},
     latitude: 0,
     longitude: 0,
     width: 0,
@@ -20,6 +21,12 @@ Page({
     this.setData({
       width: app.globalData.windowWidth,
       height: app.globalData.windowHeight
+    })
+    //获取用户信息
+    app.getUserInfo(function (userInfo) {
+      this.setData({
+        userInfo: userInfo
+      })
     })
   },
   onReady() {

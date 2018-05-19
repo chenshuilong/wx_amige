@@ -11,7 +11,12 @@
     "pages/calculator/main/main",
     "pages/calculator/history/history",
     "pages/photogallery/new/new",
-    "pages/photogallery/show/show"
+    "pages/photogallery/show/show",
+    "pages/news/main/main",
+    "pages/news/detail/detail",
+    "pages/drawguess/index/index",
+    "pages/drawguess/main/main",
+    "pages/drawguess/chat/chat"
   ],
   "window": {
     "backgroundTextStyle": "dark",
