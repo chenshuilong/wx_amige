@@ -18,7 +18,10 @@
     <input type="text" value="{{loginUrl}}" disabled class="hide"></input>
     <view class="line-control">
       <view bindtap="doLogin" class="item">
-        <view class="item-inner">登录</view>
+        <view class="item-inner">
+        <button wx:if="{{!logged}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">登录</button>
+        <view wx:if="{{logged}}">{{userInfo.nickName}},欢迎您</view>
+        </view>
       </view>
       <view bindtap="clearSession" class="item">
         <view class="item-inner">清除登录会话</view>

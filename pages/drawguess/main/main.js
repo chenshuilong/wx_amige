@@ -1,8 +1,8 @@
 // 引入 QCloud 小程序增强 SDK
-var qcloud = require('../../../vendor/qcloud-weapp-client-sdk/index');
+var qcloud = require('../../../vendor/wafer2-client-sdk/index.js');
 
 // 引入配置
-var config = require('../../../config');
+var config = require('../../../config.js');
 // 显示繁忙提示
 var showBusy = text => wx.showToast({
   title: text,

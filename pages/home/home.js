@@ -22,12 +22,6 @@ Page({
       width: app.globalData.windowWidth,
       height: app.globalData.windowHeight
     })
-    //获取用户信息
-    app.getUserInfo(function (userInfo) {
-      this.setData({
-        userInfo: userInfo
-      })
-    })
   },
   onReady() {
     this.getLocation();
@@ -35,7 +29,7 @@ Page({
   getLocation() {
     wx.getLocation({
       type: 'gcj02',
-      success: this.handleGetLocationSucc.bind(this),
+      success: this.handleGetLocationSucc.bind(this)
     })
   },
   handleGetLocationSucc(res) {

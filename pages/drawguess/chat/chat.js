@@ -4,10 +4,10 @@
 
 
 // 引入 QCloud 小程序增强 SDK
-var qcloud = require('../../../vendor/qcloud-weapp-client-sdk/index');
+var qcloud = require('../../../vendor/wafer2-client-sdk/index.js');
 
 // 引入配置
-var config = require('../../../config');
+var config = require('../../../config.js');
 
 /**
  * 生成一条聊天室的消息的唯一 ID
@@ -43,6 +43,7 @@ Page({
     messages: [],
     inputContent: '大家好啊',
     lastMessageId: 'none',
+    me: null
   },
 
   /**
@@ -84,23 +85,33 @@ Page({
    * 启动聊天室
    */
   enter() {
-    this.pushMessage(createSystemMessage('正在登录...'));
+    var that = this;
+    that.pushMessage(createSystemMessage('正在登录...'));
 
     // 如果登录过，会记录当前用户在 this.me 上
-    if (!this.me) {
-      qcloud.request({
-        url: `https://${config.service.host}/user`,
-        login: true,
-        success: (response) => {
-          this.me = response.data.data.userInfo;
-          this.connect();
+    if (!that.me) {
+      qcloud.login({
+        success(result) {
+          qcloud.request({
+            url: `${config.service.requestUrl}`,
+            login: true,
+            success: (response) => {
+              that.me = response.data.data.userInfo;
+              that.connect();
+            },
+            fail: (err) => {
+              that.pushMessage(createSystemMessage('登录失败，原因：' + err));
+            }
+          });
         },
-        fail: (err) => {
-          this.pushMessage(createSystemMessage('登录失败，原因：' + err));
+
+        fail(error) {
+          that.pushMessage(createSystemMessage('登录失败，原因：' + error));
         }
       });
+      
     } else {
-      this.connect();
+      that.connect();
     }
   },
 

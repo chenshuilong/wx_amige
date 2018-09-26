@@ -3,34 +3,11 @@
  */
 
 // 引入 QCloud 小程序增强 SDK
-var qcloud = require('../../../vendor/qcloud-weapp-client-sdk/index');
+var qcloud = require('../../../vendor/wafer2-client-sdk/index.js');
 
 // 引入配置
-var config = require('../../../config');
-
-// 显示繁忙提示
-var showBusy = text => wx.showToast({
-  title: text,
-  icon: 'loading',
-  duration: 10000
-});
-
-// 显示成功提示
-var showSuccess = text => wx.showToast({
-  title: text,
-  icon: 'success'
-});
-
-// 显示失败提示
-var showModel = (title, content) => {
-  wx.hideToast();
-
-  wx.showModal({
-    title,
-    content: JSON.stringify(content),
-    showCancel: false
-  });
-};
+var config = require('../../../config.js');
+var util = require('../../../utils/util.js');
 
 /**
  * 使用 Page 初始化页面，具体可参考微信公众平台上的文档
@@ -41,6 +18,8 @@ Page({
    * 初始数据，我们把服务地址显示在页面上
    */
   data: {
+    logged: false,
+    userInfo: {},
     loginUrl: config.service.loginUrl,
     requestUrl: config.service.requestUrl,
     tunnelUrl: config.service.tunnelUrl,
@@ -52,21 +31,62 @@ Page({
     }
   },
 
+  bindGetUserInfo: function (e) {
+    if (this.data.logged) return;
+
+    util.showBusy('正在登录');
+
+    var that = this;
+    var userInfo = e.detail.userInfo;
+
+    // 查看是否授权
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+
+          // 检查登录是否过期
+          wx.checkSession({
+            success: function () {
+              // 登录态未过期
+              util.showSuccess('登录成功');
+              that.setData({
+                logged: true
+              })
+            },
+
+            fail: function () {
+              qcloud.clearSession();
+              // 登录态已过期，需重新登录
+              that.doLogin();
+            },
+          });
+        } else {
+          util.showModel('用户未授权', e.detail.errMsg);
+        }
+      }
+    });
+  },
+
   /**
    * 点击「登录」按钮，测试登录功能
    */
   doLogin() {
-    showBusy('正在登录');
+    var that = this;
+    util.showBusy('正在登录');
 
     // 登录之前需要调用 qcloud.setLoginUrl() 设置登录地址，不过我们在 app.js 的入口里面已经调用过了，后面就不用再调用了
     qcloud.login({
       success(result) {
-        showSuccess('登录成功');
+        util.showSuccess('登录成功');
         console.log('登录成功', result);
+        that.setData({
+          logged: true,
+          userInfo: result
+        })
       },
 
       fail(error) {
-        showModel('登录失败', error);
+        util.showModel('登录失败', error);
         console.log('登录失败', error);
       }
     });
@@ -78,14 +98,14 @@ Page({
   clearSession() {
     // 清除保存在 storage 的会话信息
     qcloud.clearSession();
-    showSuccess('会话已清除');
+    util.showSuccess('会话已清除');
   },
 
   /**
    * 点击「请求」按钮，测试带会话请求的功能
    */
   doRequest() {
-    showBusy('正在请求');
+    util.showBusy('正在请求');
 
     // qcloud.request() 方法和 wx.request() 方法使用是一致的，不过如果用户已经登录的情况下，会把用户的会话信息带给服务器，服务器可以跟踪用户
     qcloud.request({
@@ -96,12 +116,12 @@ Page({
       login: true,
 
       success(result) {
-        showSuccess('请求成功完成');
+        util.showSuccess('请求成功完成');
         console.log('request success', result);
       },
 
       fail(error) {
-        showModel('请求失败', error);
+        util.showModel('请求失败', error);
         console.log('request fail', error);
       },
 
@@ -112,13 +132,20 @@ Page({
   },
 
   switchTunnel(e) {
+    var that = this;
     const turnedOn = e.detail.value;
 
-    if (turnedOn && this.data.tunnelStatus == 'closed') {
-      this.openTunnel();
-
-    } else if (!turnedOn && this.data.tunnelStatus == 'connected') {
-      this.closeTunnel();
+    if (turnedOn && that.data.tunnelStatus == 'closed') {
+      qcloud.login({
+        success(result) {
+          that.openTunnel();
+        },
+        fail(error) {
+          console.log('登录失败', error);
+        }
+      });
+    } else if (!turnedOn && that.data.tunnelStatus == 'connected') {
+      that.closeTunnel();
     }
   },
 
@@ -142,22 +169,22 @@ Page({
 
     tunnel.on('reconnecting', () => {
       console.log('WebSocket 信道正在重连...')
-      showBusy('正在重连');
+      util.showBusy('正在重连');
     });
 
     tunnel.on('reconnect', () => {
       console.log('WebSocket 信道重连成功')
-      showSuccess('重连成功');
+      util.showSuccess('重连成功');
     });
 
     tunnel.on('error', error => {
-      showModel('信道发生错误', error);
+      util.showModel('信道发生错误', error);
       console.error('信道发生错误：', error);
     });
 
     // 监听自定义消息（服务器进行推送）
     tunnel.on('speak', speak => {
-      showModel('信道消息', speak);
+      util.showModel('信道消息', speak);
       console.log('收到说话消息：', speak);
     });
 

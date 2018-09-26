@@ -41,6 +41,16 @@ Page({
         groupName: "你猜我画",
         icon: "/res/img/menu/person-option.png",
         rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "微信天气",
+        icon: "/res/img/menu/weather.png",
+        rightImage: "/res/person/tip.png"
+      },
+      {
+        groupName: "购物商城",
+        icon: "/res/img/menu/mall.png",
+        rightImage: "/res/person/tip.png"
       }
     ]
   },
@@ -93,6 +103,16 @@ Page({
   bindtap7: function () {
     wx.navigateTo({
       url: "/pages/drawguess/index/index"
+    })
+  },
+  bindtap8: function () {
+    wx.navigateTo({
+      url: "/pages/weather/index/index"
+    })
+  },
+  bindtap9: function () {
+    wx.navigateTo({
+      url: "/pages/mall/index/index"
     })
   },
   onLoad: function (options) {
